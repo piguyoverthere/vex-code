@@ -13,6 +13,7 @@ extern motor BRmotor;
 extern motor BLmotor;
 
 extern motor arm;
+extern motor clawflip;
 extern controller master;
 
 
