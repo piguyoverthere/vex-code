@@ -17,6 +17,7 @@ vex::motor BLmotor = motor(PORT2,ratio6_1, true);
 vex::motor BRmotor = motor(PORT3,ratio6_1, false);
 
 vex::motor arm = motor(PORT12, ratio18_1, false);
+vex::motor claw = motor(PORT20,ratio18_1, false);//!change if is reversed later
 vex::controller master = controller();
 
 void vexcodeInit( void ) {
