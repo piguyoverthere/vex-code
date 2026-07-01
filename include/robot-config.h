@@ -20,5 +20,4 @@ extern digital_out ClawPiston;
 extern vex::rotation armRot;
 extern float armDeg;
 
-
 void  vexcodeInit( void );

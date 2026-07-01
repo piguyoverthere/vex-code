@@ -213,6 +213,9 @@ void autonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
+  clawflip.setStopping(vex::brakeType::hold);
+  bool clawSpinning = false;
+
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -232,14 +235,19 @@ void usercontrol(void) {
       arm.spin(fwd,0,pct);
     }
 
-    if (master.ButtonR1.pressing()){
-      clawflip.spin(fwd,180,pct);
+    if (master.ButtonR1.pressing() && clawSpinning == false){
+      clawSpinning = true;
+      // clawflip.spin(fwd,180,pct);
+      clawflip.spinFor(180, rotationUnits::deg);
+      clawSpinning = false;
     }
-    else {
-      clawflip.spin(fwd,0,pct);
+    else if (master.ButtonR2.pressing() && clawSpinning == false) {
+      clawSpinning = true;
+      clawflip.spinFor(-180, rotationUnits::deg);
+      clawSpinning = false;
     }
 
-    if (master.ButtonX.pressing()){
+    if (master.ButtonX.PRESSED){
       if (pistonState){
         pistonState = false;
         ClawPiston.set(true);
