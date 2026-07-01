@@ -1,5 +1,4 @@
 #include "vex.h"
-
 using namespace vex;
 competition Competition;
 
@@ -236,13 +235,20 @@ void usercontrol(void) {
     if (master.ButtonR1.pressing()){
       clawflip.spin(fwd,180,pct);
     }
-    else if (master.ButtonR2.pressing()){
-      clawflip.spin(fwd,180,pct);
-    }
     else {
       clawflip.spin(fwd,0,pct);
     }
 
+    if (master.ButtonX.pressing()){
+      if (pistonState){
+        pistonState = false;
+        ClawPiston.set(true);
+      }
+      else if (!pistonState){
+        pistonState = true;
+        ClawPiston.set(false);
+      }
+    }
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
     chassis.control_arcade();

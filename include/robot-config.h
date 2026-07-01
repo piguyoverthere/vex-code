@@ -15,6 +15,8 @@ extern motor BLmotor;
 extern motor arm;
 extern motor clawflip;
 extern controller master;
+extern bool pistonState = false;
+extern digital_out ClawPiston
 
 
 void  vexcodeInit( void );
