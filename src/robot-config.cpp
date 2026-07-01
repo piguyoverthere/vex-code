@@ -19,6 +19,7 @@ vex::motor BRmotor = motor(PORT3,ratio6_1, false);
 vex::motor arm = motor(PORT12, ratio18_1, false);
 vex::motor clawflip = motor(PORT20,ratio18_1, false);//!change if is reversed later
 vex::digital_out ClawPiston = digital_out(Brain.ThreeWirePort.F);
+vex::rotation rotation(PORT16);
 vex::controller master = controller();
 bool pistonState = false;
 

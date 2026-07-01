@@ -17,6 +17,8 @@ extern motor clawflip;
 extern controller master;
 extern bool pistonState;
 extern digital_out ClawPiston;
+extern vex::rotation armRot;
+extern float armDeg;
 
 
 void  vexcodeInit( void );
