@@ -7,5 +7,4 @@ void rotate(double target){
     }
 }
 void dwaynethestonejohnporkcenacherryshell(){
-    //qwertyuiop im bored
 }

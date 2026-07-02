@@ -19,5 +19,6 @@ extern bool pistonState;
 extern digital_out ClawPiston;
 extern vex::rotation armRot;
 extern float armDeg;
+extern motor elevator;
 
 void  vexcodeInit( void );

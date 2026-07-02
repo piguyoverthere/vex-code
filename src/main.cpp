@@ -214,6 +214,7 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   clawflip.setStopping(vex::brakeType::hold);
+  arm.setStopping(vex::brakeType::hold); 
   bool clawSpinning = false;
 
   while (1) {
@@ -233,6 +234,7 @@ void usercontrol(void) {
     }
     else {
       arm.spin(fwd,0,pct);
+      
     }
 
     if (master.ButtonR1.pressing() && clawSpinning == false){
@@ -257,6 +259,15 @@ void usercontrol(void) {
         ClawPiston.set(false);
       }
     }
+    if (master.ButtonB.PRESSED){
+      //change keybind later
+      elevator.spin(fwd,-100,pct);
+    }else if (master.ButtonY.PRESSED){
+      elevator.spin(fwd,100,pct);
+    }else{
+      elevator.spin(fwd,0,pct);
+    }
+    
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
     chassis.control_arcade();
