@@ -16,15 +16,16 @@ vex::motor FRmotor = motor(PORT4,ratio6_1, false);
 vex::motor BLmotor = motor(PORT2,ratio6_1, true);
 vex::motor BRmotor = motor(PORT3,ratio6_1, false);
 
-vex::motor arm = motor(PORT12, ratio18_1, false);
+vex::motor arm = motor(PORT12,ratio18_1, false);
+vex::motor claw = motor(PORT9,ratio18_1, false);
+//CHANGE LATER
+vex::motor elevatorL = motor(PORT8,ratio6_1,false);
+vex::motor elevatorR = motor(PORT7,ratio6_1,true);
+vex::motor_group elevator = vex::motor_group(elevatorL, elevatorR);
 
-
-vex::motor clawflip = motor(PORT20,ratio18_1, false);//!change if is reversed later
-vex::digital_out ClawPiston = digital_out(Brain.ThreeWirePort.F);
-vex::rotation rotation(PORT16);
+vex::motor toggle = motor(PORT5,ratio6_1, false);
 vex::controller master = controller();
 bool pistonState = false;
-vex::motor elevator = motor(PORT19); //ELEVATOR lift thing
 void vexcodeInit( void ) {
   // nothing to initialize
 }

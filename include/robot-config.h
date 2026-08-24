@@ -13,12 +13,14 @@ extern motor BRmotor;
 extern motor BLmotor;
 
 extern motor arm;
-extern motor clawflip;
+extern motor toggle;
 extern controller master;
 extern bool pistonState;
-extern digital_out ClawPiston;
 extern vex::rotation armRot;
 extern float armDeg;
-extern motor elevator;
+extern motor elevatorR;
+extern motor elevatorL;
+extern motor_group elevator;
+extern motor claw;
 
 void  vexcodeInit( void );

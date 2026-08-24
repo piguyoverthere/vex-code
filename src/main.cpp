@@ -213,7 +213,6 @@ void autonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
-  clawflip.setStopping(vex::brakeType::hold);
   arm.setStopping(vex::brakeType::hold); 
   bool clawSpinning = false;
 
@@ -237,37 +236,30 @@ void usercontrol(void) {
       
     }
 
-    if (master.ButtonR1.pressing() && clawSpinning == false){
-      clawSpinning = true;
-      // clawflip.spin(fwd,180,pct);
-      clawflip.spinFor(180, rotationUnits::deg);
-      clawSpinning = false;
-    }
-    else if (master.ButtonR2.pressing() && clawSpinning == false) {
-      clawSpinning = true;
-      clawflip.spinFor(-180, rotationUnits::deg);
-      clawSpinning = false;
+    if (master.ButtonY.PRESSED){
+      toggle.spin(fwd,10,pct);
+    }else if (master.ButtonB.PRESSED) {
+      toggle.spin(fwd,-10,pct);
+    } else {
+      toggle.spin(fwd,0,pct);
     }
 
-    if (master.ButtonX.PRESSED){
-      if (pistonState){
-        pistonState = false;
-        ClawPiston.set(true);
-      }
-      else if (!pistonState){
-        pistonState = true;
-        ClawPiston.set(false);
-      }
-    }
-    if (master.ButtonB.PRESSED){
-      //change keybind later
+    
+    if (master.ButtonR1.PRESSED){
+      //
       elevator.spin(fwd,-100,pct);
-    }else if (master.ButtonY.PRESSED){
+    }else if (master.ButtonR2.PRESSED){
       elevator.spin(fwd,100,pct);
     }else{
       elevator.spin(fwd,0,pct);
     }
-    
+    if (master.ButtonL1.PRESSED){
+      claw.spin(fwd,10,pct);
+    }else if (master.ButtonL2.PRESSED){
+      claw.spin(fwd,-10,pct);
+    }else {
+      claw.spin(fwd,0,pct);
+    }
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
     chassis.control_arcade();
