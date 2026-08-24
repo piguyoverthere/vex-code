@@ -214,7 +214,6 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   arm.setStopping(vex::brakeType::hold); 
-  bool clawSpinning = false;
 
   while (1) {
     // This is the main execution loop for the user control program.
@@ -253,13 +252,7 @@ void usercontrol(void) {
     }else{
       elevator.spin(fwd,0,pct);
     }
-    if (master.ButtonL1.PRESSED){
-      claw.spin(fwd,10,pct);
-    }else if (master.ButtonL2.PRESSED){
-      claw.spin(fwd,-10,pct);
-    }else {
-      claw.spin(fwd,0,pct);
-    }
+
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
     chassis.control_arcade();
