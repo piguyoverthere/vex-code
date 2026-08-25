@@ -213,7 +213,6 @@ void autonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
-  arm.setStopping(vex::brakeType::hold); 
 
   while (1) {
     // This is the main execution loop for the user control program.
@@ -224,16 +223,6 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // 0........................................................................
-    if (master.ButtonL2.pressing()){
-      arm.spin(fwd,100,pct);
-    }
-    else if (master.ButtonL1.pressing()){
-      arm.spin(fwd,-100,pct);
-    }
-    else {
-      arm.spin(fwd,0,pct);
-      
-    }
 
     if (master.ButtonY.PRESSED){
       toggle.spin(fwd,10,pct);

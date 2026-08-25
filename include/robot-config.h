@@ -12,12 +12,8 @@ extern motor FLmotor;
 extern motor BRmotor;
 extern motor BLmotor;
 
-extern motor arm;
 extern motor toggle;
 extern controller master;
-extern bool pistonState;
-extern vex::rotation armRot;
-extern float armDeg;
 extern motor elevatorR;
 extern motor elevatorL;
 extern motor_group elevator;
