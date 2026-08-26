@@ -210,10 +210,37 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
-
+void debug() {
+  //test all motors
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("FR motor");
+  FRmotor.spin(fwd,100,pct);
+  wait(1000,msec);
+  FRmotor.stop();
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("FL motor");
+  FLmotor.spin(fwd,100,pct);
+  wait(1000,msec);
+  FLmotor.stop();
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("BR motor");
+  BRmotor.spin(fwd,100,pct);
+  wait(1000,msec);
+  BRmotor.stop();
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("BL motor");
+  BLmotor.spin(fwd,100,pct);
+  wait(1000,msec);
+  BLmotor.stop();
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  }
 void usercontrol(void) {
   // User control code here, inside the loop
-
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -239,7 +266,6 @@ void usercontrol(void) {
       toggle.spin(fwd,0,pct);
     }
 
-    
     if (master.ButtonR1.pressing()){
       //
       elevator.spin(fwd,-100,pct);
@@ -248,6 +274,8 @@ void usercontrol(void) {
     }else{
       elevator.spin(fwd,0,pct);
     }
+
+    master.ButtonLeft.pressed(debug);
 
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
