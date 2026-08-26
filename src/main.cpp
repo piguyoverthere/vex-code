@@ -223,10 +223,17 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // 0........................................................................
+    if (master.ButtonL1.pressing()){
+      claw.spin(fwd,10,pct);
+    } else if (master.ButtonL2.pressing()){
+      claw.spin(fwd,10,pct);
+    } else {
+      claw.spin(fwd,0,pct);
+    }
 
     if (master.ButtonY.pressing()){
       toggle.spin(fwd,10,pct);
-    }else if (master.ButtonB.pressing()) {
+    } else if (master.ButtonB.pressing()) {
       toggle.spin(fwd,-10,pct);
     } else {
       toggle.spin(fwd,0,pct);
