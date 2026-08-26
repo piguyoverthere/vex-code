@@ -238,6 +238,24 @@ void debug() {
   BLmotor.stop();
   Brain.Screen.clearScreen();
   Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("Toggle motor");
+  toggle.spin(fwd,100,volt);
+  wait(1000,msec);
+  toggle.stop();
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("EL motor");
+  elevatorL.spin(fwd,100,volt);
+  wait(1000,msec);
+  elevatorL.stop();
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("ER motor");
+  elevatorR.spin(fwd,100,volt);
+  wait(1000,msec);
+  elevatorL.stop();
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
   }
 void usercontrol(void) {
   // User control code here, inside the loop
