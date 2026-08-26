@@ -18,5 +18,6 @@ extern motor elevatorR;
 extern motor elevatorL;
 extern motor_group elevator;
 extern motor claw;
+extern rotation clawRot;
 
 void  vexcodeInit( void );
