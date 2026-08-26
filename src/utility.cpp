@@ -7,5 +7,10 @@ void clawToggle() {
     } else {
         clawState = false;
     }
-    
+    if (clawState) {
+        claw.spin(fwd,-100,pct);
+    } else {
+        claw.spin(fwd,100,pct);
+    }
+
 }

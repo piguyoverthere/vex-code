@@ -1,4 +1,5 @@
 #include "vex.h"
+#include "utility.h"
 using namespace vex;
 competition Competition;
 
@@ -269,9 +270,7 @@ void usercontrol(void) {
     // update your motors, etc.
     // 0........................................................................
     if (master.ButtonL1.pressing()){
-      claw.spin(fwd,10,pct);
-    } else if (master.ButtonL2.pressing()){
-      claw.spin(fwd,10,pct);
+      clawToggle();
     } else {
       claw.spin(fwd,0,pct);
     }
