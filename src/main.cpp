@@ -224,19 +224,19 @@ void usercontrol(void) {
     // update your motors, etc.
     // 0........................................................................
 
-    if (master.ButtonY.PRESSED){
+    if (master.ButtonY.pressing()){
       toggle.spin(fwd,10,pct);
-    }else if (master.ButtonB.PRESSED) {
+    }else if (master.ButtonB.pressing()) {
       toggle.spin(fwd,-10,pct);
     } else {
       toggle.spin(fwd,0,pct);
     }
 
     
-    if (master.ButtonR1.PRESSED){
+    if (master.ButtonR1.pressing()){
       //
       elevator.spin(fwd,-100,pct);
-    }else if (master.ButtonR2.PRESSED){
+    }else if (master.ButtonR2.pressing()){
       elevator.spin(fwd,100,pct);
     }else{
       elevator.spin(fwd,0,pct);
