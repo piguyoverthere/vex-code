@@ -14,3 +14,14 @@ void clawToggle() {
     }
 
 }
+void elevatorToggle() {
+    if (master.ButtonR1.PRESSED){
+        elevator.spin(fwd,10,pct);
+        elevatorToggle();
+    } else if(master.ButtonR2.PRESSED) {
+        elevator.spin(fwd,-10,pct);
+        elevatorToggle();
+    } else {
+        elevator.spin(fwd,0,pct);
+    }
+}

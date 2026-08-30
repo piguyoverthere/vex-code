@@ -25,6 +25,7 @@ vex::motor_group elevator = vex::motor_group(elevatorL, elevatorR);
 vex::motor toggle = motor(PORT19,ratio6_1, false);
 vex::controller master = controller();
 vex::rotation clawRot = rotation(PORT7);
+vex::rotation elevatorHeight = rotation(PORT8);
 void vexcodeInit( void ) {
   // nothing to initialize
 }
