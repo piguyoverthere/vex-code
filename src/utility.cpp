@@ -25,3 +25,14 @@ void elevatorToggle() {
         elevator.spin(fwd,0,pct);
     }
 }
+void toggleT() {
+    if (master.ButtonB.PRESSED) {
+        toggle.spin(fwd,40,volt);
+        toggleT();
+    } else if(master.ButtonY.PRESSED) {
+        toggle.spin(fwd,40,volt);
+        toggleT();
+    } else {
+        toggle.spin(fwd,0,pct);
+    }
+}

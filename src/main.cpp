@@ -122,7 +122,8 @@ void pre_auton() {
 
   while(!auto_started){
     Brain.Screen.clearScreen();
-    Brain.Screen.printAt(5, 20, "Liver v1.13.1a");
+    Brain.Screen.printAt(5, 20, "Liver v1.14.1a");
+    Brain.Screen.printAt(5, 30, "D TEST VERSION by piguyoverthere");
     Brain.Screen.printAt(5, 40, "Battery Percentage:");
     Brain.Screen.printAt(5, 60, "%d", Brain.Battery.capacity());
     Brain.Screen.printAt(5, 80, "Chassis Heading Reading:");
@@ -276,11 +277,7 @@ void usercontrol(void) {
     }
 
     if (master.ButtonY.pressing()){
-      toggle.spin(fwd,100,pct);
-    } else if (master.ButtonB.pressing()) {
-      toggle.spin(fwd,-100,pct);
-    } else {
-      toggle.spin(fwd,0,pct);
+      toggleT();
     }
 
     if (master.ButtonR1.pressing()){
