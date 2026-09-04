@@ -17,7 +17,7 @@ extern controller master;
 extern motor elevatorR;
 extern motor elevatorL;
 extern motor_group elevator;
-extern motor claw;
+extern pneumatics claw;
 extern rotation clawRot;
 extern rotation elevatorHeight;
 

@@ -16,7 +16,6 @@ vex::motor FRmotor = motor(PORT9,ratio6_1, false);
 vex::motor BLmotor = motor(PORT12,ratio6_1, true);
 vex::motor BRmotor = motor(PORT18,ratio6_1, false);
 
-vex::motor claw = motor(PORT6,ratio18_1, false);
 //CHANGE LATER
 vex::motor elevatorL = motor(PORT11,ratio6_1,false);
 vex::motor elevatorR = motor(PORT20,ratio6_1,true);
@@ -26,6 +25,7 @@ vex::motor toggle = motor(PORT19,ratio6_1, false);
 vex::controller master = controller();
 vex::rotation clawRot = rotation(PORT7);
 vex::rotation elevatorHeight = rotation(PORT8);
+vex::pneumatics claw = vex::pneumatics(Brain.ThreeWirePort.A);
 void vexcodeInit( void ) {
   // nothing to initialize
 }

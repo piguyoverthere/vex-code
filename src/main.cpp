@@ -270,11 +270,12 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // 0........................................................................
-    if (master.ButtonL1.pressing()){
-      clawToggle();
+    if (master.ButtonA.pressing()) {
+        claw.set(true);  // Extend the piston
     } else {
-      claw.spin(fwd,0,pct);
+        claw.set(false); // Retract the piston
     }
+
 
     if (master.ButtonY.pressing()){
       toggleT();
@@ -307,6 +308,7 @@ int main() {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
+  
 
   // Run the pre-autonomous function.
   pre_auton();
