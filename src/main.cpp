@@ -122,8 +122,8 @@ void pre_auton() {
 
   while(!auto_started){
     Brain.Screen.clearScreen();
-    Brain.Screen.printAt(5, 20, "Liver v1.14.1a");
-    Brain.Screen.printAt(5, 30, "D TEST VERSION by piguyoverthere");
+    Brain.Screen.printAt(5, 20, "Liver v1.15.2c");
+    Brain.Screen.printAt(5, 30, "#G TEST VERSION by github/piguyoverthere");
     Brain.Screen.printAt(5, 40, "Battery Percentage:");
     Brain.Screen.printAt(5, 60, "%d", Brain.Battery.capacity());
     Brain.Screen.printAt(5, 80, "Chassis Heading Reading:");
@@ -255,9 +255,19 @@ void debug() {
   Brain.Screen.print("ER motor");
   elevatorR.spin(fwd,100,volt);
   wait(1000,msec);
-  elevatorL.stop();
+  elevatorR.stop();
   Brain.Screen.clearScreen();
   Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("Pneum");
+  claw.set(true);
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("Pneum O");
+  wait(1000,msec);
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1,1);
+  Brain.Screen.print("Pneum C");
+  claw.set(false);
   }
 void usercontrol(void) {
   // User control code here, inside the loop
