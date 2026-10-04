@@ -13,7 +13,7 @@ brain  Brain;
 //Add your devices below, and don't forget to do the same in robot-config.h:
 vex::motor FLmotor = motor(PORT1,ratio6_1, true);
 vex::motor FRmotor = motor(PORT8,ratio6_1, false);
-vex::motor BLmotor = motor(PORT7,ratio6_1, true);
+vex::motor BLmotor = motor(PORT6,ratio6_1, true);
 vex::motor BRmotor = motor(PORT2,ratio6_1, false);
 
 //CHANGE LATER
