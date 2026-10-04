@@ -38,7 +38,7 @@ Drive chassis(
 //HOLONOMIC_TWO_ROTATION
 //
 //Write it here:
-ZERO_TRACKER_NO_ODOM,
+ZERO_TRACKER_ODOM,
 
 //Add the names of your Drive motors into the motor groups below, separated by commas, i.e. motor_group(Motor1,Motor2,Motor3).
 //You will input whatever motor names you chose when you configured your robot using the sidebar configurer, they don't have to be "Motor1" and "Motor2".
@@ -50,7 +50,7 @@ motor_group(FLmotor, BLmotor),
 motor_group(FRmotor, BRmotor),
 
 //Specify the PORT NUMBER of your inertial sensor, in PORT format (i.e. "PORT1", not simply "1"):
-PORT11,
+PORT13,
 
 //Input your wheel diameter. (4" omnis are actually closer to 4.125"):
 3.25,
@@ -76,10 +76,10 @@ PORT11,
 
 //FOR HOLONOMIC DRIVES ONLY: Input your drive motors by position. This is only necessary for holonomic drives, otherwise this section can be left alone.
 //LF:      //RF:    
-PORT1,     PORT4,
+PORT1,     PORT9,
 
 //LB:      //RB: 
-PORT2,     PORT3,
+PORT12,     PORT18,
 
 //If you are using position tracking, this is the Forward Tracker port (the tracker which runs parallel to the direction of the chassis).
 //If this is a rotation sensor, enter it in "PORT1" format, inputting the port below.
@@ -176,7 +176,7 @@ h/
 void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
-    case 0:
+    case 0: // Auton 1
       drive_test();
       break;
     case 1:         
