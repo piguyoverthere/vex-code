@@ -122,8 +122,8 @@ void pre_auton() {
 
   while(!auto_started){
     Brain.Screen.clearScreen();
-    Brain.Screen.printAt(5, 20, "Liver v1.18");
-    Brain.Screen.printAt(5, 30, "#K TEST VERSION by github/piguyoverthere");
+    Brain.Screen.printAt(5, 20, "Liver v1.21");
+    Brain.Screen.printAt(5, 30, "#S TEST VERSION by github/piguyoverthere");
     Brain.Screen.printAt(5, 40, "Battery Percentage:");
     Brain.Screen.printAt(5, 60, "%d", Brain.Battery.capacity());
     Brain.Screen.printAt(5, 80, "Chassis Heading Reading:");
