@@ -294,10 +294,9 @@ void usercontrol(void) {
     }
 
     if (master.ButtonR1.pressing()){
-      //
-      elevator.spin(fwd,-100,pct);
+      elevator.spin(fwd,-150,pct);
     }else if (master.ButtonR2.pressing()){
-      elevator.spin(fwd,100,pct);
+      elevator.spin(fwd,150,pct);
     }else{
       elevator.spin(fwd,0,pct);
     }
