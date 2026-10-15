@@ -281,9 +281,7 @@ void usercontrol(void) {
     // update your motors, etc.
     // 0........................................................................
     if (master.ButtonA.pressing()) {
-        claw.set(true);  // Extend the piston
-    } else {
-        claw.set(false); // Retract the piston
+     claw.set(!claw.value());
     }
 
 

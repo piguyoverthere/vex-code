@@ -20,7 +20,6 @@ vex::motor BRmotor = motor(PORT2,ratio6_1, false);
 vex::motor elevatorL = motor(PORT9,ratio6_1,false);
 vex::motor elevatorR = motor(PORT3,ratio6_1,true);
 vex::motor_group elevator = vex::motor_group(elevatorL, elevatorR);
-vex::serial_link radio = vex::serial_link(PORT5, "elpr", linkType::manager);
 
 
 vex::motor toggle = motor(PORT4,ratio6_1, false);
