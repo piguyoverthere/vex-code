@@ -105,7 +105,7 @@ PORT12,     PORT18,
 
 );
 
-int current_auton_selection = 0;
+int current_auton_selection = 1;
 bool auto_started = false;
 
 /**
@@ -180,7 +180,7 @@ void autonomous(void) {
       drive_test();
       break;
     case 1:         
-      drive_test();
+      threepins();
       break;
     case 2:
       turn_test();

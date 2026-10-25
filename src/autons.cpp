@@ -36,6 +36,17 @@ void odom_constants(){
   chassis.drive_min_voltage = 0;
 }
 
+void threepins() {
+  odom_constants();
+  chassis.set_coordinates(0, 0, 0);
+
+  toggle.spin(fwd);
+  wait(500, msec);
+  toggle.stop();
+
+  chassis.drive_distance(36);
+}
+
 /**
  * The expected behavior is to return to the start position.
  */
