@@ -122,8 +122,8 @@ void pre_auton() {
 
   while(!auto_started){
     Brain.Screen.clearScreen();
-    Brain.Screen.printAt(5, 20, "Liver v1.21");
-    Brain.Screen.printAt(5, 30, "#S TEST VERSION by github/piguyoverthere");
+    Brain.Screen.printAt(5, 20, "Liver v1.23");
+    Brain.Screen.printAt(5, 30, "#P TEST VERSION by github/piguyoverthere");
     Brain.Screen.printAt(5, 40, "Battery Percentage:");
     Brain.Screen.printAt(5, 60, "%d", Brain.Battery.capacity());
     Brain.Screen.printAt(5, 80, "Chassis Heading Reading:");
@@ -304,6 +304,10 @@ void usercontrol(void) {
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
     chassis.control_arcade();
+
+    while (master.ButtonA.pressing()) {
+      wait(20, msec);
+    }
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
