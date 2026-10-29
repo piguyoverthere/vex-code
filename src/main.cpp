@@ -280,8 +280,9 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // 0........................................................................
-    if (master.ButtonA.pressing()) {
-     claw.set(!claw.value());
+    master.ButtonA.pressed(clawToggle);
+    void clawToggle(); {
+      claw.set(!claw.value());
     }
 
 
