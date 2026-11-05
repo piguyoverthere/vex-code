@@ -271,6 +271,7 @@ void debug() {
   }
 void usercontrol(void) {
   // User control code here, inside the loop
+  bool pneumaticState = false;
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -280,9 +281,16 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // 0........................................................................
-    master.ButtonA.pressed(clawToggle);
-    void clawToggle(); {
-      claw.set(!claw.value());
+    if (master.ButtonA.pressing()) {
+            pneumaticState = !pneumaticState;
+
+            DigitalOutA.set(pneumaticState);
+
+            // Wait until button is released
+            while (master.ButtonA.pressing()) {
+                wait(20, msec);
+            }
+        }
     }
 
 
