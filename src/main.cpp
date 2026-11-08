@@ -272,6 +272,7 @@ void debug() {
 void usercontrol(void) {
   // User control code here, inside the loop
   bool pneumaticState = false;
+  bool lastL1 = false;
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -281,17 +282,13 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // 0........................................................................
-    if (master.ButtonL1.pressing()) {
-            pneumaticState = !pneumaticState;
-
-            DigitalOutA.set(pneumaticState);
-
-            // Wait until button is released
-            while (master.ButtonA.pressing()) {
-                wait(20, msec);
-            }
-        }
+    // Toggle once per press, without pausing the rest of the loop
+    bool currentL1 = master.ButtonL1.pressing();
+    if (currentL1 && !lastL1) {
+      pneumaticState = !pneumaticState;
+      claw.set(pneumaticState);
     }
+    lastL1 = currentL1;
 
 
     if (master.ButtonY.pressing() || master.ButtonB.pressing()){
@@ -313,10 +310,6 @@ void usercontrol(void) {
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
     chassis.control_arcade();
-
-    while (master.ButtonA.pressing()) {
-      wait(20, msec);
-    }
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.

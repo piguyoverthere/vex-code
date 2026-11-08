@@ -53,9 +53,10 @@ void threepins() {
   chassis.drive_distance(16);
   // to pin
 
-  DigitalOutA.set(true);
-  DigitalOutA.set(false);
-  //claw
+  claw.set(true);
+  wait(500, msec);
+  claw.set(false);
+  // claw
 
   elevator.spin(fwd,200,pct);
 }
