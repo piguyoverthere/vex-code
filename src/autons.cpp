@@ -39,12 +39,25 @@ void odom_constants(){
 void threepins() {
   odom_constants();
   chassis.set_coordinates(0, 0, 0);
+  // coord 0 0 0
 
   toggle.spin(fwd);
   wait(500, msec);
   toggle.stop();
+  // toggle
 
   chassis.drive_distance(36);
+  chassis.turn_to_angle(-123);
+  // orient
+
+  chassis.drive_distance(16);
+  // to pin
+
+  DigitalOutA.set(true);
+  DigitalOutA.set(false);
+  //claw
+
+  elevator.spin(fwd,200,pct);
 }
 
 /**
