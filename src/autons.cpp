@@ -42,12 +42,12 @@ void threepins() {
   // coord 0 0 0
 
   toggle.spin(fwd);
-  wait(500, msec);
+  wait(800, msec);
   toggle.stop();
   // toggle
 
-  chassis.drive_distance(36);
-  chassis.turn_to_angle(-60);
+  chassis.drive_distance(30);
+  chassis.turn_to_angle(-55);
   // orient
 
   chassis.drive_distance(16);
