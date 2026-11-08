@@ -46,8 +46,8 @@ void threepins() {
   toggle.stop();
   // toggle
 
-  chassis.drive_distance(30);
-  chassis.turn_to_angle(-55);
+  chassis.drive_distance(25);
+  chassis.turn_to_angle(-50);
   // orient
 
   chassis.drive_distance(16);
