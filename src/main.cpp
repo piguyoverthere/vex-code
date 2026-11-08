@@ -281,7 +281,7 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // 0........................................................................
-    if (master.ButtonA.pressing()) {
+    if (master.ButtonL1.pressing()) {
             pneumaticState = !pneumaticState;
 
             DigitalOutA.set(pneumaticState);
@@ -294,7 +294,7 @@ void usercontrol(void) {
     }
 
 
-    if (master.ButtonY.pressing()){
+    if (master.ButtonY.pressing() || master.ButtonB.pressing()){
       toggle.spin(fwd,100,pct);
     }else{
       toggle.spin(fwd,0,pct);
