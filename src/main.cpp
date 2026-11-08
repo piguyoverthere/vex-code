@@ -269,10 +269,18 @@ void debug() {
   Brain.Screen.print("Pneum C");
   claw.set(false);
   }
+void calibrate() {
+  imu.calibrate();
+}
 void usercontrol(void) {
   // User control code here, inside the loop
   bool pneumaticState = false;
   bool lastL1 = false;
+
+  // Register button callbacks once, before the loop
+  master.ButtonLeft.pressed(debug);
+  master.ButtonX.pressed(calibrate);
+
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -304,8 +312,6 @@ void usercontrol(void) {
     }else{
       elevator.spin(fwd,0,pct);
     }
-
-    master.ButtonLeft.pressed(debug);
 
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.

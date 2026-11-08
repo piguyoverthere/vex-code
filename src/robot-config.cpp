@@ -25,6 +25,8 @@ vex::motor_group elevator = vex::motor_group(elevatorL, elevatorR);
 vex::motor toggle = motor(PORT4,ratio6_1, false);
 vex::controller master = controller();
 vex::pneumatics claw = vex::pneumatics(Brain.ThreeWirePort.A);
+
+vex::inertial imu = inertial(PORT20);
 void vexcodeInit( void ) {
   // nothing to initialize
 }

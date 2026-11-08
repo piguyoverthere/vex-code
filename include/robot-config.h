@@ -20,5 +20,6 @@ extern motor_group elevator;
 extern pneumatics claw;
 extern rotation clawRot;
 extern rotation elevatorHeight;
+extern inertial imu;
 
 void vexcodeInit( void );
