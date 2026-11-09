@@ -46,19 +46,29 @@ void threepins() {
   toggle.stop();
   // toggle
 
-  chassis.drive_distance(23);
+  chassis.drive_distance(26);
   chassis.turn_to_angle(-50);
   // orient
 
   chassis.drive_distance(13);
   // to pin
 
-  claw.set(true);
-  wait(500, msec);
   claw.set(false);
+  wait(500, msec);
+  claw.set(true);
   // claw
 
-  elevator.spin(fwd,200,pct);
+  elevator.spin(fwd,100,pct);
+  // rise
+
+  chassis.turn_to_angle(-177);
+  chassis.drive_distance(16.5);
+  //turn
+
+  elevator.spin(fwd,-200,pct);
+  claw.set(false);
+  // auto align to deposit
+
 }
 
 /**
