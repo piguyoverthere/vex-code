@@ -276,8 +276,9 @@ void calibrate() {
 }
 void usercontrol(void) {
   // User control code here, inside the loop
-  bool pneumaticState = false;
-  bool lastL1 = false;
+  // Start from the claw's real state so the first press always changes it
+  bool pneumaticState = claw.value();
+  bool lastA = false;
 
   // Register button callbacks once, before the loop
   master.ButtonLeft.pressed(debug);
@@ -293,17 +294,20 @@ void usercontrol(void) {
     // update your motors, etc.
     // 0........................................................................
     // Toggle once per press, without pausing the rest of the loop
-    bool currentL1 = master.ButtonL1.pressing();
-    if (currentL1 && !lastL1) {
+    bool currentA = master.ButtonA.pressing();
+    if (currentA && !lastA) {
       pneumaticState = !pneumaticState;
       claw.set(pneumaticState);
     }
-    lastL1 = currentL1;
+    lastA = currentA;
 
 
-    if (master.ButtonY.pressing() || master.ButtonB.pressing()){
-      // Full voltage gives the toggle maximum power instead of velocity control
+    // Y and B spin the toggle opposite ways so it can switch sides
+    // Full voltage gives the toggle maximum power instead of velocity control
+    if (master.ButtonY.pressing()){
       toggle.spin(fwd,12,volt);
+    }else if (master.ButtonB.pressing()){
+      toggle.spin(reverse,12,volt);
     }else{
       toggle.spin(fwd,0,pct);
     }
