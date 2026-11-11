@@ -95,7 +95,9 @@ PORT12,     PORT18,
 -2,
 
 //Input the Sideways Tracker Port, following the same steps as the Forward Tracker Port:
-1,
+//JAR always claims this 3-wire port (and the next one) for an encoder, even with ZERO_TRACKER_ODOM.
+//Keep it off port A, which is the claw. 7 = ports G and H, so leave those empty.
+7,
 
 //Sideways tracker diameter (reverse to make the direction switch):
 -2.75,
@@ -300,7 +302,8 @@ void usercontrol(void) {
 
 
     if (master.ButtonY.pressing() || master.ButtonB.pressing()){
-      toggle.spin(fwd,100,pct);
+      // Full voltage gives the toggle maximum power instead of velocity control
+      toggle.spin(fwd,12,volt);
     }else{
       toggle.spin(fwd,0,pct);
     }
