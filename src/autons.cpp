@@ -10,9 +10,9 @@
 
 void default_constants(){
   // Each constant set is in the form of (maxVoltage, kP, kI, kD, startI).
-  chassis.set_drive_constants(10, 1.5, 0, 10, 0);
+  chassis.set_drive_constants(8, 1.5, 0, 10, 0);
   chassis.set_heading_constants(6, .4, 0, 1, 0);
-  chassis.set_turn_constants(12, .4, .03, 3, 15);
+  chassis.set_turn_constants(8, .4, .03, 3, 15);
   chassis.set_swing_constants(12, .3, .001, 2, 15);
 
   // Each exit condition set is in the form of (settle_error, settle_time, timeout).
@@ -37,7 +37,7 @@ void odom_constants(){
 }
 
 void threepins() {
-  odom_constants();
+  default_constants();
   chassis.set_coordinates(0, 0, 0);
   // coord 0 0 0
 
@@ -58,16 +58,27 @@ void threepins() {
   claw.set(true);
   // claw
 
-  elevator.spin(fwd,100,pct);
+  elevator.spin(fwd,-100,pct);
   // rise
 
-  chassis.turn_to_angle(-177);
+  chassis.turn_to_angle(-150);
   chassis.drive_distance(16.5);
   //turn
 
-  elevator.spin(fwd,-200,pct);
+  elevator.spin(fwd,50,pct);
   claw.set(false);
   // auto align to deposit
+
+  chassis.drive_distance(-7);
+  // back off the deposit
+
+  chassis.turn_to_angle(-114);
+  chassis.drive_distance(27.5);
+  // to the ring on the line
+
+  chassis.turn_to_angle(-84);
+  chassis.drive_distance(-13);
+  // back to finish
 
 }
 

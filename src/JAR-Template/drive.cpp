@@ -273,6 +273,8 @@ void Drive::turn_to_angle(float angle, float turn_max_voltage, float turn_settle
     drive_with_voltage(output, -output);
     task::sleep(10);
   }
+  // Hold position so leftover voltage doesn't carry into the next movement
+  drive_stop(hold);
 }
 
 
@@ -322,6 +324,8 @@ void Drive::drive_distance(float distance, float heading, float drive_max_voltag
     drive_with_voltage(drive_output+heading_output, drive_output-heading_output);
     task::sleep(10);
   }
+  // Hold position so leftover voltage doesn't carry into the next movement
+  drive_stop(hold);
 }
 
 /**
