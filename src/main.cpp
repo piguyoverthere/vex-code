@@ -283,6 +283,8 @@ void usercontrol(void) {
   master.ButtonLeft.pressed(debug);
   master.ButtonX.pressed(calibrate);
 
+  toggle.setMaxTorque(100, vex::percent);
+
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -303,7 +305,7 @@ void usercontrol(void) {
 
     if (master.ButtonY.pressing() || master.ButtonB.pressing()){
       // Full voltage gives the toggle maximum power instead of velocity control
-      toggle.spin(fwd,12,volt);
+      toggle.spin(vex::forward, 20, vex::percent);
     }else{
       toggle.spin(fwd,0,pct);
     }
