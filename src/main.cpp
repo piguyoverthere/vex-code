@@ -303,9 +303,13 @@ void usercontrol(void) {
     lastL1 = currentL1;
 
 
-    if (master.ButtonY.pressing() || master.ButtonB.pressing()){
+    if (master.ButtonY.pressing()){
       // Full voltage gives the toggle maximum power instead of velocity control
       toggle.spin(vex::forward, 20, vex::percent);
+      toggle.spin(vex::forward, 100, volt);
+    } else if (master.ButtonB.pressing()){
+      toggle.spin(vex::reverse, 20, vex::percent);
+      toggle.spin(vex::reverse, 100, volt);
     }else{
       toggle.spin(fwd,0,pct);
     }
